@@ -12,7 +12,7 @@ MappedArticles::Application.routes.draw do
   
   put "articles/:id" => "articles#update"
   
-  delete "articles/:id" => "tracks#delete"
+  delete "articles/:id" => "articles#delete"
   
   
   # The priority is based upon order of creation:

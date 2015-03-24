@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   
   def index
-    @articles = Article.find(:all, :order => "id desc", :limit => 5)
+    @articles = Article.where(published: true).order("id desc").limit(5)
   end
   
   def show
@@ -26,6 +26,12 @@ class ArticlesController < ApplicationController
     Article.update(params[:id], params[:article])
     
     redirect_to "/articles/#{params[:id]}"
+  end
+  
+  def delete
+    Article.update(params[:id], published: false)
+    
+    redirect_to controller: "articles", action: "index"
   end
   
   

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150324185820) do
+ActiveRecord::Schema.define(:version => 20150324215833) do
 
   create_table "articles", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20150324185820) do
     t.text     "title"
     t.text     "body"
     t.integer  "author_id"
+    t.boolean  "published"
   end
 
   add_index "articles", ["author_id"], :name => "index_articles_on_author_id"
