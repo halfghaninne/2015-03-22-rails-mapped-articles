@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150324215833) do
+ActiveRecord::Schema.define(:version => 20150324224727) do
 
   create_table "articles", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -26,6 +26,11 @@ ActiveRecord::Schema.define(:version => 20150324215833) do
 
   create_table "authors", :force => true do |t|
     t.string "name"
+  end
+
+  create_table "locations", :force => true do |t|
+    t.text "alias"
+    t.text "address"
   end
 
   add_foreign_key "articles", "authors", name: "articles_author_id_fk"
