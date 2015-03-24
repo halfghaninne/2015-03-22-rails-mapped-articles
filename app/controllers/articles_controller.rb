@@ -18,6 +18,15 @@ class ArticlesController < ApplicationController
     redirect_to controller: "articles", action: "index"
   end
   
+  def edit
+    @article = Article.find(params[:id])
+  end
+  
+  def update
+    Article.update(params[:id], params[:article])
+    
+    redirect_to "/articles/#{params[:id]}"
+  end
   
   
 end
