@@ -1,9 +1,4 @@
 class CreateArticleTable < ActiveRecord::Migration
-  def change
-    create_table :authors do |t|
-      t.string :name
-    end
-  end 
   
   def change
     create_table :articles do |t|
@@ -13,4 +8,5 @@ class CreateArticleTable < ActiveRecord::Migration
       t.belongs_to :author
     end
   end
+  
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150323031715) do
+ActiveRecord::Schema.define(:version => 20150324185820) do
 
   create_table "articles", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -20,5 +20,13 @@ ActiveRecord::Schema.define(:version => 20150323031715) do
     t.text     "body"
     t.integer  "author_id"
   end
+
+  add_index "articles", ["author_id"], :name => "index_articles_on_author_id"
+
+  create_table "authors", :force => true do |t|
+    t.string "name"
+  end
+
+  add_foreign_key "articles", "authors", name: "articles_author_id_fk"
 
 end
