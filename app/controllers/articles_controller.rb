@@ -1,11 +1,11 @@
 class ArticlesController < ApplicationController
   
   def index
-    @articles = Article.all[0..10]
+    @articles = Article.find(:all, :order => "id desc", :limit => 5)
   end
   
   def show
-    @article = Track.find(params[:id])
+    @article = Article.find(params[:id])
   end
   
 end

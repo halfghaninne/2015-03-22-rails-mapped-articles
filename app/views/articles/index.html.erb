@@ -1,0 +1,12 @@
+<% @articles.each do |article| %>
+	<div>
+		<h2>
+			<%= link_to(article.title, article_path(article.id))%>
+		</h2>
+		<h4>
+			<%= article.author.name %> <%= article.updated_at.to_s.at(5..15)%> 		</h4>
+		<p>
+			<%= article.body.at(0..200)%>
+		</p>
+	</div>
+<% end %>

@@ -1,4 +1,10 @@
 MappedArticles::Application.routes.draw do
+  
+  get "articles" => "articles#index", as: "articles"
+  
+  get "articles/:id" => "articles#show", as: "article"
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

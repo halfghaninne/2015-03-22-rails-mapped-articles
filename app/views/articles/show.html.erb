@@ -1,0 +1,4 @@
+<h2><%= @article.title %></h2>
+<h4><%= @article.author.name %>
+<%= @article.updated_at.to_s.at(5..15) %></h4>
+<p><%= @article.body %></p>
