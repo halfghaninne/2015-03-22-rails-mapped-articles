@@ -2,7 +2,17 @@ MappedArticles::Application.routes.draw do
   
   get "articles" => "articles#index", as: "articles"
   
+  get "articles/new" => "articles#new", as: "new_article"
+  
+  post "articles" => "articles#create"
+  
   get "articles/:id" => "articles#show", as: "article"
+  
+  get "articles/:id/edit" => "articles#edit", as: "edit_article"
+  
+  put "articles/:id" => "articles#update"
+  
+  delete "articles/:id" => "tracks#delete"
   
   
   # The priority is based upon order of creation:

@@ -1,0 +1,11 @@
+Newa article
+
+<%= form_for @article do |f| %>
+	<%= f.label "title", "Title:" %>
+    <%= f.text_field("title") %><br>
+    <!-- <%= f.label "author", "Author:" %>
+    <%= f.text_field("artist") %><br> -->
+    <%= f.label "body", "Article Text:" %>
+    <%= f.text_area("body") %><br>
+    <%= f.submit %>
+<% end %>
