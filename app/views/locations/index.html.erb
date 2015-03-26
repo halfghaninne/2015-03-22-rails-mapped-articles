@@ -10,7 +10,15 @@ L.mapbox.accessToken = 'pk.eyJ1IjoiaGFsZmdoYW5pbm5lIiwiYSI6IjFsaXlKYVUifQ.KArbwb
 var map = L.mapbox.map('map', 'halfghaninne.liga61p0')
     .setView([41.284, -95.945], 12);
 
+	var get_locations = new XMLHttpRequest();
+	get_locations.open("get", "locations", true);
+	get_locations.send();
+	get_locations.addEventListener("load", function() {
+		var geojson = JSON.parse(this.response);
 
+		L.mapbox.featureLayer.setGeoJSON(geojson)
+
+	});
 
 
 // L.mapbox.accessToken = 'pk.eyJ1IjoiaGFsZmdoYW5pbm5lIiwiYSI6ImJuM0wwbm8ifQ.109o-AfmKCbMITcnOvrmFA';

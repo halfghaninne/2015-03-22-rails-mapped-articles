@@ -20,11 +20,16 @@ class LocationsController < ApplicationController
           }
         }
       end
-  
-      respond_to do |format|
-        format.html
-        format.json { render json: @geojson }
+      
+      @geojsonformatted = []
+      @geojson.each do |obj|
+        @geojsonformatted << obj.to_json
       end
+  
+      # respond_to do |format|
+#         format.html
+#         format.json { render json: @geojson }
+#       end
   
   end 
   
