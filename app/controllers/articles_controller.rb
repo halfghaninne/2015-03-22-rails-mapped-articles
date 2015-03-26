@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
   
   def index
     @articles = Article.where(published: true).order("id desc").limit(5)
+
   end
   
   def show

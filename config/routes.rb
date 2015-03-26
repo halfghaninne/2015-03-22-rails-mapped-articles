@@ -15,6 +15,10 @@ MappedArticles::Application.routes.draw do
   delete "articles/:id" => "articles#delete"
   
   
+  
+  get "locations" => "locations#index", as: "locations"
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
