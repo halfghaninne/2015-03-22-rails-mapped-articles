@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150325145225) do
+ActiveRecord::Schema.define(:version => 20150326031622) do
 
   create_table "articles", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -34,8 +34,10 @@ ActiveRecord::Schema.define(:version => 20150325145225) do
   end
 
   create_table "locations", :force => true do |t|
-    t.text "alias"
-    t.text "address"
+    t.text    "alias"
+    t.text    "address"
+    t.decimal "latitude"
+    t.decimal "longitude"
   end
 
   add_foreign_key "articles", "authors", name: "articles_author_id_fk"
