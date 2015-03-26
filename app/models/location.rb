@@ -9,9 +9,9 @@ class Location < ActiveRecord::Base
   
   def get_coordinates
     geocoder_return = Geocoder.search(self.address)
-    binding.pry
-    self.latitude = geocoder_return[0].latitude
-    self.longitude = geocoder_return[0].longitude
+    latitude = geocoder_return[0].latitude
+    longitude = geocoder_return[0].longitude
+    Location.update(self.id, :latitude => latitude, :longitude => longitude)
   end
   
 end
