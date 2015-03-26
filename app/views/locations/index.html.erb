@@ -1,2 +1,21 @@
-<div class="map" id="map">
-</div>
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+
+<div id='map' class='dark'></div>
+<script type='text/javascript'>
+
+L.mapbox.accessToken = 'pk.eyJ1IjoiaGFsZmdoYW5pbm5lIiwiYSI6IjFsaXlKYVUifQ.KArbwbb7EBBh5jKW_B5Gyg';
+var map = L.mapbox.map('map', 'halfghaninne.liga61p0')
+    .setView([41.284, -95.945], 12);
+
+
+
+
+// L.mapbox.accessToken = 'pk.eyJ1IjoiaGFsZmdoYW5pbm5lIiwiYSI6ImJuM0wwbm8ifQ.109o-AfmKCbMITcnOvrmFA';
+//
+// var map = L.mapbox.map('map', 'halfghaninne.liga61p0').setView([41.229, -96.032], 12);
+
+  // var map = L.mapbox.map('map', 'examples.map-y7l23tes').setView([37.9, -77], 5);
+</script>

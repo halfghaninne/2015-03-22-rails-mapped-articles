@@ -17,6 +17,8 @@ gem 'geocoder', '~> 1.2.8'
 
 gem 'dotenv', '~> 2.0.0'
 
+# gem 'mapbox-rails'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
