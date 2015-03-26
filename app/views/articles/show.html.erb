@@ -3,5 +3,12 @@
 <%= @article.updated_at.to_s.at(5..15) %></h4>
 <p><%= @article.body %></p>
 
+
+<p>
+	<% @article.locations.each do |location| %>
+	<%= location.alias %><br>
+	<% end%>
+</p>
+
 <%= link_to("Edit", edit_article_path(@article.id))%>
 <%= link_to("Unpublish", article_path(@article.id), method: :delete, confirm: "Are you sure you want to unpublish this article? It will no longer appear on the site but can always be retrieved from the database.")%>
