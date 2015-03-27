@@ -1,14 +1,55 @@
-<h2><%= @article.title %></h2>
-<h4><%= @article.author.name %>
-<%= @article.updated_at.to_s.at(5..15) %></h4>
+<div id="show_nav_bar">
+	<header>
+		<ul id="show_nav">
+			<li id="home_link"><%= link_to("Omaha Times", articles_path)%></li>
+			<li>More Stories</li>
+			<li>About</li>
+		</ul>
+		<ul id="show_user_panel">
+			<li class="admin_priv"><%= link_to("Edit", edit_article_path(@article.id))%></li>
+			<li class="admin_priv"><%= link_to("Unpublish", article_path(@article.id), method: :delete, confirm: "Are you sure you want to unpublish this article? It will no longer appear on the site but can always be retrieved from the database.")%></li>
+			<li>Sign Up</li>
+			<li>Log In</li>
+		</ul>
+	</header>
+</div>
+
+
+<header id="header_image"> 
+	<div id="header_text">
+	<h2><%= @article.title %></h2>
+	<h4><%= @article.author.name %>
+	<%= @article.updated_at.to_s.at(5..15) %></h4>
+	</div>
+</header>
+
+<div id="divider">
+</div>
+
+<div class="body" id="body">
+	
 <p><%= @article.body %></p>
 
+</div>
 
+<div id="divider">
+</div>
+
+<div id="author_info">
+	<p>Author information coming soon</p>
+</div>
+
+<div id="divider">
+</div>
+
+<div id="map_info">
 <p>
 	<% @article.locations.each do |location| %>
 	<%= location.alias %><br>
 	<% end%>
 </p>
+	<div id="article_map_embed">
+	<img src="http://www.wallpapersdb.org/wallpapers/cats/cat_keyboard_1920x1080.jpg">
+	</div>
 
-<%= link_to("Edit", edit_article_path(@article.id))%>
-<%= link_to("Unpublish", article_path(@article.id), method: :delete, confirm: "Are you sure you want to unpublish this article? It will no longer appear on the site but can always be retrieved from the database.")%>
+</div>

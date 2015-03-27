@@ -1,12 +1,33 @@
+
+<div id="nav_bar">
+		<header>
+	<h1><%= link_to("Omaha Times", articles_path)%></h1>
+	
+		<ul id="nav">
+			<li>More Stories</li>
+			<li>About</li>
+		</ul>
+		<ul id="user_panel">
+			<li>Sign Up</li>
+			<li>Log In</li>
+		</ul>
+		
+		</header>
+</div>
+	
+<div id="article_list">
+
 <% @articles.each do |article| %>
 	<div>
-		<h2>
+		<h2 id="article_link">
 			<%= link_to(article.title, article_path(article.id))%>
 		</h2>
-		<h4>
+		<h4 id="article_pub_info">
 			<%= article.author.name %> <%= article.updated_at.to_s.at(5..15)%> 		</h4>
-		<p>
+		<div id="article_text_prev">
 			<%= article.body.at(0..200)%>
-		</p>
+		</div>
 	</div>
 <% end %>
+
+</div>
