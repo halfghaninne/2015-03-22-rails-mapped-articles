@@ -55,14 +55,51 @@ li {
 
 #article_list {
 	padding-top: 100px;
-	
-	margin-left: 10px;
 	text-decoration: none;
 }
 
 #article_link {
+	padding-left: 10px;
+	padding-top: 4px;
+	padding-bottom: 4px;
 	background-color: black;
 	color: white;
+}
+
+#article_pub_info {
+	padding-left: 10px;
+}
+
+#article_text_prev {
+	font-style: italic;
+	padding-left: 10px;
+}
+
+/* ******************************************************** */
+/* ***************** Article show Page CSS **************** */
+/* ******************************************************** */
+
+.parallax {
+	perspective: 1px;
+	height: 100vh;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+.parallax_layer {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.parallax_layer--base {
+	transform: translateZ(0);
+}
+
+.parallax_layer--back {
+	transform: translateZ(-1px) scale(2);
 }
 
 #show_nav_bar {

@@ -17,20 +17,20 @@
 
 <header id="header_image"> 
 	<div id="header_text">
-	<h2><%= @article.title %></h2>
-	<h4><%= @article.author.name %>
-	<%= @article.updated_at.to_s.at(5..15) %></h4>
+		<h2><%= @article.title %></h2>
+		<h4><%= @article.author.name %>
+		<%= @article.updated_at.to_s.at(5..15) %></h4>
 	</div>
 </header>
+
 
 <div id="divider">
 </div>
 
 <div class="body" id="body">
-	
-<p><%= @article.body %></p>
-
+	<p><%= @article.body %></p>
 </div>
+
 
 <div id="divider">
 </div>
@@ -48,8 +48,6 @@
 	<%= location.alias %><br>
 	<% end%>
 </p> -->
-	
 	<div id="article_map_embed">
 	</div>
-
 </div>
