@@ -23,8 +23,8 @@ class UsersController < ApplicationController
     @user = User.where( email: email )[0]
     
     if @user
-      if BCrypt::Password.new(@user.password) == params[:user][:password] #same syntax issue here
-        session[:user_id] = @user.id # possible syntax issue here
+      if BCrypt::Password.new(@user.password) == params[:user][:password] 
+        session[:user_id] = @user.id 
         redirect_to controller: "articles", action: "index"
       else
         redirect_to controller: "users", action: "login"
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   end
   
   def logout
-    session[:user_id] = nil # possible syntax issue here
+    session[:user_id] = nil 
     @user = nil
     
     redirect_to controller: "articles", action: "index"
