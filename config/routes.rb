@@ -23,6 +23,9 @@ MappedArticles::Application.routes.draw do
    
   post "users" => "users#create"
   
+  get "users/login" => "users#login"
+  
+  post "users/find" => "users#find"
   
   
   # The priority is based upon order of creation:

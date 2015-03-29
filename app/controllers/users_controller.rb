@@ -1,23 +1,34 @@
+require "bcrypt"
+
 class UsersController < ApplicationController
+  include BCrypt
   
   def new
     @user = User.new
   end
   
   def create
-    password_key = BCrypt::Password.create(params[:password])
-    params[:password] = password_key
+    password_key = BCrypt::Password.create(params[:user][:password]) 
+    params[:user][:password] = password_key 
     newUser = User.create(params[:user])
     
-    redirect_to controller: "users", action: "login"
+    redirect_to controller: "articles", action: "index"
   end
   
   def login
-    @user = User.find_by_email(params[:email]) # will need to check this syntax. think it's something more like params[:user][:email]
+  end
+  
+  def find
+    email = params[:user][:email]
+    @user = User.where( email: email )[0]
     
     if @user
-      if BCrypt::Password.new(@user.password) == params[:password] #same syntax issue here
+      if BCrypt::Password.new(@user.password) == params[:user][:password] #same syntax issue here
         session[:user_id] = @user.id # possible syntax issue here
+        redirect_to controller: "articles", action: "index"
+      else
+        redirect_to controller: "users", action: "login"
+      end
     else
       redirect_to controller: "users", action: "login"
     end
