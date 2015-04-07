@@ -21,16 +21,10 @@ class LocationsController < ApplicationController
         }
       end
       
-  
+    @geojsonformatted = @geojson.to_json
+    binding.pry
       
-      
-      
-      @geojsonformatted = @geojson.to_json
-  
-      # respond_to do |format|
-#         format.html
-#         format.json { render json: @geojson }
-#       end
+    render :partial => '/locations/map_embed'
   
   end 
   

@@ -14,4 +14,54 @@ class Location < ActiveRecord::Base
     Location.update(self.id, :latitude => latitude, :longitude => longitude)
   end
   
+  def map_article(article_id)
+    @locations = "SELECT * FROM 'articles_locations' WHERE article_id = #{article_id}"
+    
+    @geojson = Array.new
+
+      @locations.each do |location|
+        @geojson << {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [location.longitude, location.latitude]
+          },
+          properties: {
+            name: location.alias,
+            address: location.address,
+            :'marker-color' => '#00607d',
+            :'marker-symbol' => 'circle',
+            :'marker-size' => 'medium'
+          }
+        }
+      end
+      
+    @geojsonformatted = @geojson.to_json
+    
+  end
+  
+  def map_all
+    @locations = Location.all
+    @geojson = Array.new
+
+      @locations.each do |location|
+        @geojson << {
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [location.longitude, location.latitude]
+          },
+          properties: {
+            name: location.alias,
+            address: location.address,
+            :'marker-color' => '#00607d',
+            :'marker-symbol' => 'circle',
+            :'marker-size' => 'medium'
+          }
+        }
+      end
+      
+    @geojsonformatted = @geojson.to_json
+  end
+  
 end

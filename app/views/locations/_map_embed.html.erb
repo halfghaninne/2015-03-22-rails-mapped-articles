@@ -1,0 +1,15 @@
+<style>
+  body { margin:0; padding:0; }
+  #map { top:0; bottom:0; width:500px; height: 500px; }
+</style>
+
+<div id='map' class='dark'></div>
+<script type='text/javascript'>
+
+L.mapbox.accessToken = 'pk.eyJ1IjoiaGFsZmdoYW5pbm5lIiwiYSI6IjFsaXlKYVUifQ.KArbwbb7EBBh5jKW_B5Gyg';
+var map = L.mapbox.map('map', 'halfghaninne.liga61p0')
+    .setView([41.284, -95.945], 12);
+	
+map.featureLayer.setGeoJSON(<%= raw(@geojsonformatted) %>)
+
+</script>
