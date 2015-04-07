@@ -1,8 +1,18 @@
 class ArticlesController < ApplicationController
   
+  before_filter :validate_user_presence
+  
+  def validate_user_presence
+    if session[:user_id] != nil
+      @user = User.find(session[:user_id])
+      @admin = true if @user.is_admin
+    end
+  end
+  
   def index
     @articles = Article.where(published: true).order("id desc").limit(5)
     @geojsonformatted = Location.map_all
+    binding.pry
   end
   
   def show

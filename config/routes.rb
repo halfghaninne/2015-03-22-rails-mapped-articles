@@ -2,13 +2,13 @@ MappedArticles::Application.routes.draw do
   
   get "articles" => "articles#index", as: "articles"
   
-  get "articles/new" => "articles#new", as: "new_article"
+  get "articles/new" => "articles#new", as: "new_article" #change to something more private - security - should not be accessed by a non-admin
   
-  post "articles" => "articles#create"
+  post "articles" => "articles#create" 
   
   get "articles/:id" => "articles#show", as: "article"
   
-  get "articles/:id/edit" => "articles#edit", as: "edit_article"
+  get "articles/:id/edit" => "articles#edit", as: "edit_article" # change to not a get route - security for non-admin 
   
   put "articles/:id" => "articles#update"
   
@@ -27,7 +27,7 @@ MappedArticles::Application.routes.draw do
   
   post "users/find" => "users#find"
   
-  post "users" => "users/logout", as: "user_sign_out"
+  get "users" => "users#logout", as: "user_logout" # IS A GET METHOD THIS PROBLEMATIC / UNSECURE?
   
   
   # The priority is based upon order of creation:

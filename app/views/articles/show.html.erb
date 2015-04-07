@@ -6,10 +6,11 @@
 			<li>About</li>
 		</ul>
 		<ul id="show_user_panel">
-			<li class="admin_priv"><%= link_to("Edit", edit_article_path(@article.id))%></li>
-			<li class="admin_priv"><%= link_to("Unpublish", article_path(@article.id), method: :delete, confirm: "Are you sure you want to unpublish this article? It will no longer appear on the site but can always be retrieved from the database.")%></li>
-			<li>Sign Up</li>
-			<li>Log In</li>
+			<li class="admin_priv"><%= link_to("Edit", edit_article_path(@article.id)) if @admin %></li>
+			<li class="admin_priv"><%= link_to("Unpublish", article_path(@article.id), method: :delete, confirm: "Are you sure you want to unpublish this article? It will no longer appear on the site but can always be retrieved from the database.") if @admin %></li>
+			<li><%= link_to("Sign Up", new_user_path) if @user == nil %></li>
+			<li><%= link_to("Log In", user_login_path) if @user == nil %></li>
+			<li><%= link_to("Sign Out", user_logout_path) if @user %></li>
 		</ul>
 	</header>
 </div>

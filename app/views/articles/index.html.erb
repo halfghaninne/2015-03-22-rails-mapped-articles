@@ -8,9 +8,9 @@
 			<li>About</li>
 		</ul>
 		<ul id="user_panel">
-			<%= link_to("Sign Up", new_user_path)%>
-			<%= link_to("Log In", user_login_path)%>
-			<%= link_to("Sign Out", user_sign_out_path)%>
+			<%= link_to("Sign Up", new_user_path) if @user == nil %>
+			<%= link_to("Log In", user_login_path) if @user == nil %>
+			<%= link_to("Sign Out", user_logout_path) if @user %>
 		</ul>
 		
 		</header>

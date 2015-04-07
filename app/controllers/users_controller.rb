@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   def logout
     session[:user_id] = nil 
     @user = nil
-    
+    @admin = false
     redirect_to controller: "articles", action: "index"
   end
   
