@@ -14,8 +14,8 @@ class Location < ActiveRecord::Base
     Location.update(self.id, :latitude => latitude, :longitude => longitude)
   end
   
-  def map_article(article_id)
-    @locations = "SELECT * FROM 'articles_locations' WHERE article_id = #{article_id}"
+  def self.map_article(article_id)
+    @locations = Article.find(article_id).locations
     
     @geojson = Array.new
 
@@ -36,11 +36,10 @@ class Location < ActiveRecord::Base
         }
       end
       
-    @geojsonformatted = @geojson.to_json
-    
-  end
+    @geojsonformatted = @geojson.to_json  
+  end # method
   
-  def map_all
+  def self.map_all
     @locations = Location.all
     @geojson = Array.new
 

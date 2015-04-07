@@ -42,12 +42,6 @@
 <div id="divider">
 </div>
 
-<div id="map_info">
-<!-- <p>
-	<% @article.locations.each do |location| %>
-	<%= location.alias %><br>
-	<% end%>
-</p> -->
-	<div id="article_map_embed">
-	</div>
+<div id="map_embed">
+	<%= render :partial => '/locations/map_article_embed' %>
 </div>
