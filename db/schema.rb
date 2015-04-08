@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150407235413) do
+ActiveRecord::Schema.define(:version => 20150408185017) do
 
   create_table "articles", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -24,11 +24,6 @@ ActiveRecord::Schema.define(:version => 20150407235413) do
 
   add_index "articles", ["author_id"], :name => "index_articles_on_author_id"
 
-  create_table "articles_locations", :id => false, :force => true do |t|
-    t.integer "article_id"
-    t.integer "location_id"
-  end
-
   create_table "authors", :force => true do |t|
     t.string "name"
     t.text   "auth_info"
@@ -39,6 +34,11 @@ ActiveRecord::Schema.define(:version => 20150407235413) do
     t.text    "address"
     t.decimal "latitude"
     t.decimal "longitude"
+  end
+
+  create_table "pins", :force => true do |t|
+    t.integer "article_id"
+    t.integer "location_id"
   end
 
   create_table "users", :force => true do |t|

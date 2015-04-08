@@ -1,7 +1,8 @@
 class Location < ActiveRecord::Base
   attr_accessible :alias, :address, :latitude, :longitude
   
-  has_and_belongs_to_many :articles
+  has_many :pins
+  has_many :articles, through: :pins
   
   def custom_alias
     self.alias # TODO - Whatever Alex wants

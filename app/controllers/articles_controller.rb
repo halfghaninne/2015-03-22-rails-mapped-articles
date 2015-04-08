@@ -22,19 +22,19 @@ class ArticlesController < ApplicationController
   
   def new
     @article = Article.new
-    @location = location.new
+    @location = Location.new
   end
   
   def create
     newArticle = Article.create(params[:article])
     
     if params[:location]
-      newLocation = Location.create(:alias => params[:alias], :address => params[:address])
+      newLocation = Location.create(:alias => params[:alias], 
+                                    :address => params[:address])
       newLocation.get_coordinates
       newArticle.locations << newLocation
     end
-    
-    
+  
     redirect_to controller: "articles", action: "index"
   end
   

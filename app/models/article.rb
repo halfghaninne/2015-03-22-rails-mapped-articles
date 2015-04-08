@@ -1,7 +1,8 @@
 class Article < ActiveRecord::Base
-  attr_accessible :title, :body, :author_id, :published, :location_ids, :locations
-  
+  attr_accessible :title, :body, :author_id, :published, :locations
   belongs_to :author
-  has_and_belongs_to_many :locations
+  
+  has_many :pins
+  has_many :locations, through: :pins
   
 end
