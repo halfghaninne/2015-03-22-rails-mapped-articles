@@ -12,11 +12,11 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.where(published: true).order("id desc").limit(5)
     @geojsonformatted = Location.map_all
-    binding.pry
   end
   
   def show
     @article = Article.find(params[:id])
+    binding.pry
     @geojsonformatted = Location.map_article(params[:id])
   end
   

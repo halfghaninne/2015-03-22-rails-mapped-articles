@@ -7,10 +7,9 @@ Edit Article:
 	<%= f.collection_select(:author_id, Author.all, :id, :name, :prompt => true)%><br>
     <%= f.label "body", "Article Text:" %><br>
     <%= f.text_area("body") %><br>
-	<%= f.collection_select(:location_ids, Location.all, :id, :custom_alias, {prompt: true}, {:name => "article[location_ids][]"})%><br>
-	<%= f.hidden_field(:published, value: true)%>
-	<%= f.collection_select(:location_ids, Location.all, :id, :custom_alias, {prompt: true}, {:name => "article[location_ids][]"})%><br>
-	<%= f.collection_select(:location_ids, Location.all, :id, :custom_alias, {prompt: true}, {:name => "article[location_ids][]"})%><br>
+<% @article.locations.each do |location| %>
+	<%= f.collection_select(:location_ids, Location.all, :id, :custom_alias, {:selected => location.id }, {:name => "article[location_ids][]"})%><br>
+<% end %><br>
 	<%= f.hidden_field(:published, value: true)%>
     <%= f.submit "Publish" %>
 <% end %>
