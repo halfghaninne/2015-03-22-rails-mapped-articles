@@ -21,6 +21,11 @@ class ArticlesController < ApplicationController
   end
   
   def new
+    if @admin != true
+      flash[:message] = "Only admins are allowed to access that page. Please sign in."
+      redirect_to controller: "articles", action: "index"
+    end
+    
     @article = Article.new
   end
   
