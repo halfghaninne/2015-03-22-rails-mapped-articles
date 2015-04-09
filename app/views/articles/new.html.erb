@@ -8,15 +8,9 @@ New article
     <%= f.label "body", "Article Text:" %><br>
     <%= f.text_area("body") %><br>
 	<%= f.collection_select(:location_ids, Location.all, :id, :custom_alias, {prompt: true}, {:name => "article[location_ids][]"})%><br>
-	<%= f.hidden_field(:published, value: true)%>
-	<%= f.collection_select(:location_ids, Location.all, :id, :custom_alias, {prompt: true}, {:name => "article[location_ids][]"})%><br>
-	<%= f.collection_select(:location_ids, Location.all, :id, :custom_alias, {prompt: true}, {:name => "article[location_ids][]"})%><br>
-	New Location:<br>
-	<%= form_for @location do |f| %>
-		<%= f.label "alias", "Alias (a name for the address you'd like readers to see):" %>
-		<%= f.text_field("alias") %><br>
-		<%= f.label "address" %>
-		<%= f.text_field("address") %>
+	<%= f.fields_for :locations do |nest| %>
+		<%= render 'shared/locations_form', f: nest %>
 	<% end %>
+	<%= f.hidden_field(:published, value: true)%>
     <%= f.submit "Publish" %>
 <% end %>
