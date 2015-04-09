@@ -1,6 +1,15 @@
 class ArticlesController < ApplicationController
   
   before_filter :validate_user_presence
+  before_filter :admin_block, only: [:new, :edit]
+  
+  def admin_block
+    if @admin != true
+      flash[:message] = "Only admins are allowed to access that page. 
+                        Please sign in."
+      redirect_to controller: "articles", action: "index"
+    end
+  end
   
   def validate_user_presence
     if session[:user_id] != nil
@@ -20,12 +29,7 @@ class ArticlesController < ApplicationController
     @geojsonformatted = Location.map_article(params[:id])
   end
   
-  def new
-    if @admin != true
-      flash[:message] = "Only admins are allowed to access that page. Please sign in."
-      redirect_to controller: "articles", action: "index"
-    end
-    
+  def new  
     @article = Article.new
   end
   
