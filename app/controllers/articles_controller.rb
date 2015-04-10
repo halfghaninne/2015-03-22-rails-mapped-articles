@@ -39,7 +39,6 @@ class ArticlesController < ApplicationController
   
   def edit
     @article = Article.find(params[:id])
-    @article.pins.build
   end
   
   def update

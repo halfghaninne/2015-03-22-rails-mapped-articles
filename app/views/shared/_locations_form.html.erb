@@ -1,12 +1,16 @@
 Enter a new location:<br><br>
-<%= f.label "new_location_alias", "Name for location (visible to readers):" %>
-<br>
-<%= f.text_field("new_location_alias") %>
+<%= f.fields_for :pins, newPin, child_index: ruby_object_id do |p| %>
 
-<br><br>
+	<%= p.label "new_location_alias", 
+				"Name for location (visible to readers):" %>
+	<br>
+	<%= p.text_field("new_location_alias") %>
 
-<%= f.label "new_location_address", "Address:" %>
-<br>
-<%= f.text_field("new_location_address", size: 50) %>
+	<br><br>
 
+	<%= p.label "new_location_address", "Address:" %>
+	<br>
+	<%= p.text_field("new_location_address", size: 50) %>
+	
+<% end %>
 <br><br>

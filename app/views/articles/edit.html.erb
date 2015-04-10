@@ -16,22 +16,24 @@ Edit Article:
 	
 	<%= f.fields_for :pins do |p| %>
 		
-		
-		<% if p.object.new_record? %>
-			<%= render 'shared/locations_form', f: p %>
-		<% else %>
-			<%= p.collection_select(
-				:location_id,
-				Location.all,
-				:id,
-				:custom_alias,
-				{:selected => p.object.location_id }
-			) %>
-		<% end %>
+<%# render 'shared/locations_form', f: p %>
+			
+		<%= p.collection_select(
+			:location_id,
+			Location.all,
+			:id,
+			:custom_alias,
+			{:selected => p.object.location_id }
+		) %>
 		
 		<br>
 		
 	<% end %>
+	
+	<div id="add_location_fields">
+	</div>
+	
+	<%= link_to_add_location_fields(@article, f) %>
 	
 	<%= f.hidden_field(:published, value: true)%>
 	
