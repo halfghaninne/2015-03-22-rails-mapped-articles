@@ -1,20 +1,12 @@
-<!-- in edit form, this is prepopulating with the previous location's information, including its id, which get passed in params. id stays in params even if alias and address are deleted - might overwrite location info.
-
- "article"=>
-  {"title"=>"test",
-   "author_id"=>"1",
-   "body"=>"test",
-   "location_ids"=>["1"],
-   "locations_attributes"=>{"0"=>{"alias"=>"", "address"=>"", "id"=>"5"}},
-   "published"=>"true"},
-
-
- -->
-
 Enter a new location:<br><br>
-<%= f.label "alias", "Name for location (visible to readers):" %><br>
-<%= f.text_field("alias") %><br><br>
-<%= f.label "address", "Address:" %><br>
-<%= f.text_field("address", size: 50) %><br><br>
+<%= f.label "new_location_alias", "Name for location (visible to readers):" %>
+<br>
+<%= f.text_field("new_location_alias") %>
 
-<!-- TODO pre-populate with ex -->
+<br><br>
+
+<%= f.label "new_location_address", "Address:" %>
+<br>
+<%= f.text_field("new_location_address", size: 50) %>
+
+<br><br>

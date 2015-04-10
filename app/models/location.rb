@@ -8,7 +8,7 @@ class Location < ActiveRecord::Base
     self.alias # TODO - Whatever Alex wants
   end
   
-  def get_coordinates
+  def get_coordinates # tweak this to move it into a before filter for create
     geocoder_return = Geocoder.search(self.address)
     latitude = geocoder_return[0].latitude
     longitude = geocoder_return[0].longitude

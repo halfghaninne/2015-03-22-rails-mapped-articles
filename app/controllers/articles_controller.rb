@@ -39,12 +39,12 @@ class ArticlesController < ApplicationController
   
   def edit
     @article = Article.find(params[:id])
+    @article.pins.build
   end
   
   def update
-    binding.pry
-    Article.update(params[:id], params[:article])
-    
+    updatedArticle = Article.find(params[:id])
+    updatedArticle.update_attributes(params[:article])
     redirect_to "/articles/#{params[:id]}"
   end
   
