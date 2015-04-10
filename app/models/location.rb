@@ -4,9 +4,6 @@ class Location < ActiveRecord::Base
   has_many :pins
   has_many :articles, through: :pins
   
-  extend ActiveModel::Callbacks
-  define_model_callbacks :create
-  
   before_create :get_coordinates
   
   def get_coordinates # tweak this to move it into a before filter for create
