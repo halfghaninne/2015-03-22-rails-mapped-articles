@@ -16,6 +16,7 @@ class ArticlesController < ApplicationController
   
   def show
     @article = Article.find(params[:id])
+    binding.pry
     @geojsonformatted = Location.map_article(params[:id])
   end
   
@@ -43,6 +44,7 @@ class ArticlesController < ApplicationController
   end
   
   def update
+    binding.pry
     updatedArticle = Article.find(params[:id])
     updatedArticle.update_attributes(params[:article])
     redirect_to "/articles/#{params[:id]}"

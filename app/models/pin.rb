@@ -14,7 +14,8 @@ class Pin < ActiveRecord::Base
   
   def new_location_address=(address)
     loc_name = self.new_location_alias
-    newLocation = Location.create(alias: loc_name, address: address)
+    if loc_name.length > 0 && address.length > 0
+      newLocation = Location.create(alias: loc_name, address: address)
     self.location_id = newLocation.id
     @new_location_address = address
   end
