@@ -9,4 +9,6 @@ module ApplicationHelper
     
     link_to("Add New Location", "#", :class => "add_location_link", style: "color: red", data: {fields: x.gsub("\n", ""), rubyid: ruby_object_id})
   end
+
+  
 end

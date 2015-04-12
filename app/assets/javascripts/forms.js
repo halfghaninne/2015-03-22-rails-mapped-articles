@@ -11,6 +11,16 @@ window.onload = function() {
 				new_field_data;
 	};
 	
+	var default_dropdown = document.getElementsByClassName("default_dropdown");
+	
+	function addDropdown(){
+		document.getElementById("add_dropdown").innerHTML +=
+	};
+	
+	
+	
+	
+	
 	add_location_link[0].addEventListener("click", showData)
 	
 };

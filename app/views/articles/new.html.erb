@@ -12,16 +12,7 @@ New article
 	
 	<br><br>
 	
-	<%# f.collection_select(
-		:location_ids, 
-		Location.all, 
-		:id, 
-		:custom_alias, 
-		{prompt: true}, 
-		{:name => "article[location_ids][]"}
-	)%>
-	
-	
+	<div id="default_dropdown">
 	<%= f.fields_for :pins do |p| %>
 			
 		<%= p.collection_select(
@@ -35,6 +26,9 @@ New article
 		<br>
 		
 	<% end %>
+	</div>
+	<div id="add_dropdown">
+	</div>
 	
 	<div id="add_location_fields">
 	</div>

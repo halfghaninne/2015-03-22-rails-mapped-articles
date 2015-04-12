@@ -38,7 +38,7 @@ class ArticlesController < ApplicationController
     newArticle = Article.create(params[:article])
     
     params[:article][:pins_attributes].each do |k,v|
-      Pin.create({article_id: newArticle.id, 
+      Pin.create({article_id: newArticle.id,
                   location_id: v["location_id"].to_i})
     end
   
