@@ -10,13 +10,8 @@ Edit Article:
     <%= f.label "body", "Article Text:" %><br>
     <%= f.text_area("body") %><br><br>
 	
-	<%#= f.label "article[location_ids][]", "Locations in this Article:" %><br>
-	
-	<br>
 	
 	<%= f.fields_for :pins do |p| %>
-		
-<%# render 'shared/locations_form', f: p %>
 			
 		<%= p.collection_select(
 			:location_id,

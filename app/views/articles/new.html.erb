@@ -3,14 +3,45 @@ New article
 <%= form_for @article do |f| %>
 	<%= f.label "title", "Title:" %>
     <%= f.text_field("title") %><br>
+	
 	<%= f.label "author", "Author:" %>
 	<%= f.collection_select(:author_id, Author.all, :id, :name, :prompt => true)%><br>
+	
     <%= f.label "body", "Article Text:" %><br>
-    <%= f.text_area("body") %><br>
-	<%= f.collection_select(:location_ids, Location.all, :id, :custom_alias, {prompt: true}, {:name => "article[location_ids][]"})%><br>
-	<%= f.fields_for :locations do |nest| %>
-		<%= render 'shared/locations_form', f: nest %>
+    <%= f.text_area("body") %>
+	
+	<br><br>
+	
+	<%# f.collection_select(
+		:location_ids, 
+		Location.all, 
+		:id, 
+		:custom_alias, 
+		{prompt: true}, 
+		{:name => "article[location_ids][]"}
+	)%>
+	
+	
+	<%= f.fields_for :pins do |p| %>
+			
+		<%= p.collection_select(
+			:location_id,
+			Location.all,
+			:id,
+			:custom_alias,
+			{prompt: true}
+		) %>
+		
+		<br>
+		
 	<% end %>
+	
+	<div id="add_location_fields">
+	</div>
+	
+	<%= link_to_add_location_fields(@article, f) %>
+	
 	<%= f.hidden_field(:published, value: true)%>
     <%= f.submit "Publish" %>
+	
 <% end %>

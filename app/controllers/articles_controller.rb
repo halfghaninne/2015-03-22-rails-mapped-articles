@@ -21,19 +21,19 @@ class ArticlesController < ApplicationController
   
   def new
     @article = Article.new
-    @location = Location.new
+    @newPin = @article.pins.build
   end
   
   def create
+    binding.pry
     newArticle = Article.create(params[:article])
     
-    if params[:location]
-      newLocation = Location.create(:alias => params[:alias], 
-                                    :address => params[:address])
-      newLocation.get_coordinates
-      newArticle.locations << newLocation
+    params[:article][:pins_attributes].each do |k,v|
+      Pin.create({article_id: newArticle.id, 
+                  location_id: v["location_id"].to_i})
     end
   
+    flash[:message] = "Your article has been published."
     redirect_to controller: "articles", action: "index"
   end
   
