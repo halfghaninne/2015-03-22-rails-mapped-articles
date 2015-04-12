@@ -79,6 +79,10 @@ li {
 /* ***************** Article show Page CSS **************** */
 /* ******************************************************** */
 
+.error {
+	font-style: bold;
+	color: red;
+}
 .parallax {
 	perspective: 1px;
 	height: 100vh;
