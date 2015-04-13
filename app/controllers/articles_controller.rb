@@ -30,11 +30,9 @@ class ArticlesController < ApplicationController
   
   def new  
     @article = Article.new
-    @newPin = @article.pins.build
   end
   
   def create
-    binding.pry
     newArticle = Article.create(params[:article])
     
     params[:article][:pins_attributes].each do |k,v|

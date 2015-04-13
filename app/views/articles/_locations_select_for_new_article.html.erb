@@ -1,0 +1,12 @@
+<%= f.fields_for :pins, newPin, child_index: ruby_object_id do |p| %>
+	<%= p.collection_select(
+		:location_id,
+		Location.all,
+		:id,
+		:custom_alias,
+		{prompt: true}
+	) %>
+	
+	<br>
+	
+<% end %>

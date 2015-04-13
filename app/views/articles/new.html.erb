@@ -12,28 +12,27 @@ New article
 	
 	<br><br>
 	
-	<div id="default_dropdown">
-	<%= f.fields_for :pins do |p| %>
-			
-		<%= p.collection_select(
-			:location_id,
-			Location.all,
-			:id,
-			:custom_alias,
-			{prompt: true}
-		) %>
-		
-		<br>
-		
-	<% end %>
-	</div>
 	<div id="add_dropdown">
 	</div>
+	
+	<br>
+	
+	<%= link_to_add_dropdown(@article, f) %>	
+	
+	<br><br><br>
+	
+	<label style="color:red">Add a new location to the system:</label>
+	
+	<br><br>
 	
 	<div id="add_location_fields">
 	</div>
 	
+	<br>
+	
 	<%= link_to_add_location_fields(@article, f) %>
+	
+	<br><br>
 	
 	<%= f.hidden_field(:published, value: true)%>
     <%= f.submit "Publish" %>
