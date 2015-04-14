@@ -1,4 +1,9 @@
+html {
+	width: 100%;
+}
+
 body {
+	width: 100%;
 	margin: 0;
 	padding: 0;
 }
@@ -8,7 +13,7 @@ a {
 	color: rgb(255, 255, 255);
 }
 
-#nav_bar {
+.nav-bar {
 	margin: 0;
 	height: 80px;
 	width: 100%;
@@ -19,16 +24,45 @@ a {
 }
 
 header {
-	
 	padding-top: 5px;
 	padding-right: 10px;
 	padding-left: 10px;
 	padding-bottom: 5px;
 }
 
-h1 {
+.nav-bar__logo {
+	display: inline-block;
 	text-align: center;
-	margin: 0;
+	margin: 0 auto;
+}
+
+.nav-bar__hamburger{
+	padding-top: 9px;
+	display: inline-block;
+	float: left;
+	height: 28px;
+}
+
+.site-nav{
+	float: left;
+	transform: translateX(-500px);
+	height: 100%;
+}
+
+.is-shown{
+	display: none;
+}
+
+.nav-bar__user{
+	padding-top: 9px;
+	display: inline-block;
+	float: right;
+	height: 28px;
+}
+
+.user-panel {
+	float: right;
+	transform: translateX(-200px);
 }
 
 ul {
@@ -44,18 +78,11 @@ li {
 	padding-right: 8px;
 }
 
-#nav {
-	float: left;
-}
-
-#user_panel {
-	float: right;
-}
-
 
 #article_list {
 	padding-top: 100px;
 	text-decoration: none;
+	padding-bottom: 50px;
 }
 
 #article_link {

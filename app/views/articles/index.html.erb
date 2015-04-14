@@ -1,19 +1,28 @@
+<ul class="site-nav">
+	<li>More Stories</li>
+	<li>About</li>
+</ul>
 
-<div id="nav_bar">
-		<header>
-	<h1><%= link_to("Omaha Times", articles_path)%></h1>
-	
-		<ul id="nav">
-			<li>More Stories</li>
-			<li>About</li>
-		</ul>
-		<ul id="user_panel">
-			<%= link_to("Sign Up", new_user_path) if @user == nil %>
-			<%= link_to("Log In", user_login_path) if @user == nil %>
-			<%= link_to("Sign Out", user_logout_path) if @user %>
-		</ul>
+<ul class="user-panel is-shown">
+	<%= link_to("Sign Up", new_user_path) if @user == nil %>
+	<%= link_to("Log In", user_login_path) if @user == nil %>
+	<%= link_to("Sign Out", user_logout_path) if @user %>
+</ul>
+
+<div class="nav-bar">
+	<header>
+		<div class="nav-bar__logo">
+			<h1><%= link_to("Omaha Times", articles_path)%></h1>
+		</div>
 		
-		</header>
+		<div class="nav-bar__hamburger">
+			<img src="http://www.mde-sudreunion.fr/images/Image/logo_service/icon-etude.png" class="nav-bar__hamburger">
+		</div>	
+		
+		<div class="nav-bar__user">
+			<img src="http://flaticons.net/icons/Application/User-Profile.png" class="nav-bar__user">
+		</div>		
+	</header>
 </div>
 	
 <div id="article_list">
