@@ -27,9 +27,11 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id 
         redirect_to controller: "articles", action: "index"
       else
+        flash[:message] = "Wrong password. Try again."
         redirect_to controller: "users", action: "login"
       end
     else
+      flash[:message] = "We didn't recognize that username."
       redirect_to controller: "users", action: "login"
     end
     

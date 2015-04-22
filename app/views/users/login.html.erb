@@ -1,6 +1,11 @@
 <%= render :partial => '/shared/main_nav' %>
 
 <div class="user_login">
+  
+	<div class="flash">
+		<%= flash[:message] %>
+	</div>
+  
   Log In
 
   <%= form_for :user, url: {action: "find"}, method: "post" do |f| %>
