@@ -30,6 +30,7 @@ class ArticlesController < ApplicationController
   
   def show
     @article = Article.find(params[:id])
+    @body = @article.body.split(/\r\n\r\n/) #Array of each paragraph
     @geojsonformatted = Location.map_article(params[:id])
   end
   

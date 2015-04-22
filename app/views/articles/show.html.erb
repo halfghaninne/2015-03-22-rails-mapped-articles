@@ -29,7 +29,9 @@
 </div>
 
 <div class="body" id="body">
-	<p><%= @article.body %></p>
+  <% @body.each do |para| %>
+	<p><%= para %></p>
+  <% end %>
 </div>
 
 
