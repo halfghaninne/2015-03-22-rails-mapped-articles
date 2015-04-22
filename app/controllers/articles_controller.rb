@@ -18,9 +18,14 @@ class ArticlesController < ApplicationController
     end
   end
   
+  def reroute
+    index
+  end
+  
   def index
     @articles = Article.where(published: true).order("id desc").limit(5)
     @geojsonformatted = Location.map_all
+    render "/articles/index"
   end
   
   def show
