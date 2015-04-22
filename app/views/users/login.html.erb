@@ -1,11 +1,14 @@
-Log In
+<%= render :partial => '/shared/main_nav' %>
 
-<%= form_for :user, url: {action: "find"}, method: "post" do |f| %>
-	<%= f.label "username", "Username:" %>
-    <%= f.text_field("username") %><br>
-	<%= f.label "email", "Email:" %>
-	<%= f.text_field("email") %><br>
-	<%= f.label "password", "Password:" %>
-    <%= f.password_field("password") %><br>
-    <%= f.submit "Log In" %>
-<% end %>
+<div class="user_login">
+  Log In
+
+  <%= form_for :user, url: {action: "find"}, method: "post" do |f| %>
+  	<%= f.label "username", "Username:" %>
+      <%= f.text_field("username") %><br>
+  	<%= f.label "password", "Password:" %>
+      <%= f.password_field("password") %><br>
+      <%= f.submit "Log In" %>
+  <% end %>
+  
+</div>

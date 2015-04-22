@@ -1,20 +1,6 @@
 
-<div id="nav_bar">
-		<header>
-	<h1><%= link_to("Omaha Times", articles_path)%></h1>
-	
-		<ul id="nav">
-			<li>More Stories</li>
-			<li>About</li>
-		</ul>
-		<ul id="user_panel">
-			<%= link_to("Sign Up", new_user_path) if @user == nil %>
-			<%= link_to("Log In", user_login_path) if @user == nil %>
-			<%= link_to("Sign Out", user_logout_path) if @user %>
-		</ul>
-		
-		</header>
-</div>
+<%= render :partial => '/shared/main_nav' %>
+
 	
 <div id="article_list">
 	
