@@ -19,8 +19,8 @@ class UsersController < ApplicationController
   end
   
   def find
-    email = params[:user][:email]
-    @user = User.where( email: email )[0]
+    username = params[:user][:username]
+    @user = User.where( username: username )[0]
     
     if @user
       if BCrypt::Password.new(@user.password) == params[:user][:password] 

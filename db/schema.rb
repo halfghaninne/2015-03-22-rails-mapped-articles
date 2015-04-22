@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150408185017) do
+ActiveRecord::Schema.define(:version => 20150422203557) do
 
   create_table "articles", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -43,12 +43,11 @@ ActiveRecord::Schema.define(:version => 20150408185017) do
 
   create_table "users", :force => true do |t|
     t.text    "username"
-    t.text    "email"
     t.text    "password"
     t.boolean "is_admin"
   end
 
-  add_index "users", ["username", "email"], :name => "index_users_on_username_and_email", :unique => true
+  add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
   add_foreign_key "articles", "authors", name: "articles_author_id_fk"
 

@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+require "bcrypt"
+
+password = BCrypt::Password.create("admin")
+admin = User.create({username: "admin", password: password, is_admin: true})
+
+author = Author.create({name: "Jane Doe", auth_info: "Jane is author based in Omaha, NE. She loves cats, math, and feminism."})
