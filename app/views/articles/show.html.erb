@@ -1,5 +1,5 @@
 <div id="show_nav_bar">
-	<header>
+	<header class="nav">
 		<ul id="show_nav">
 			<li id="home_link"><%= link_to("Omaha Times", articles_path)%></li>
 			<li>More Stories</li>
@@ -17,7 +17,7 @@
 
 
 <header id="header_image" style="background-image:url(<%= @image %>)"> 
-	<div id="header_text">
+	<div class="header_text">
 		<h2><%= @article.title %></h2>
 		<h4><%= @article.author.name %>
 		<%= @article.updated_at.to_s.at(5..15) %></h4>
