@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  attr_accessible :title, :body, :author_id, :published, :locations, 
+  attr_accessible :title, :body, :author_id, :published, :main_image_url, :locations, 
                   :location_ids, :locations_attributes, :pins_attributes
                   
   belongs_to :author

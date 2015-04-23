@@ -6,6 +6,9 @@ Edit Article:
 	
 	<%= f.label "author", "Author:" %>
 	<%= f.collection_select(:author_id, Author.all, :id, :name, :prompt => true)%><br>
+  
+  <%= f.label "main_image_url", "URL for main image:" %>
+  <%= f.text_field("main_image_url") %><br>
 	
     <%= f.label "body", "Article Text:" %><br>
     <%= f.text_area("body") %><br><br>
