@@ -1,7 +1,7 @@
 <div id="show_nav_bar">
 	<header class="nav">
 		<ul id="show_nav">
-			<li id="home_link"><%= link_to("Omaha Times", articles_path)%></li>
+			<li class="home_link"><%= link_to("Omaha Times", articles_path)%></li>
 			<li>More Stories</li>
 			<li>About</li>
 		</ul>
@@ -13,6 +13,17 @@
 			<li><%= link_to("Sign Out", user_logout_path) if @user %></li>
 		</ul>
 	</header>
+  
+  <div id="mobile_nav">
+    <header>
+        <ul class="mobile_nav_show_title">
+          <li class="home_link"><%= link_to("Omaha Times", articles_path)%></li>
+        </ul>
+
+    	  <ul id="mobile_nav_show_menu">
+    		  <li>ICON HERE</li>
+        </ul>
+  </div>
 </div>
 
 

@@ -80,6 +80,23 @@ li {
   	padding-left: 10px;
   	padding-bottom: 5px;
   }
+  
+  .mobile_nav_show_title {
+  	padding-top: 5px;
+  	padding-right: 10px;
+  	padding-left: 10px;
+  	padding-bottom: 5px;
+  }
+  
+  #mobile_nav_show_menu {
+    float: right;
+  }
+  
+  .mobile_nav_show_title {
+  	float: left;
+  }
+  
+  
 }
 
 /* ******************************************************** */
@@ -115,28 +132,29 @@ li {
 	font-style: bold;
 	color: red;
 }
-.parallax {
-	perspective: 1px;
-	height: 100vh;
-	overflow-x: hidden;
-	overflow-y: hidden;
+
+/*.parallax {
+  perspective: 1px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .parallax_layer {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .parallax_layer--base {
-	transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .parallax_layer--back {
-	transform: translateZ(-1px) scale(2);
-}
+  transform: translateZ(-1px) scale(2);
+}*/
 
 #show_nav_bar {
 	background-color: black;
@@ -179,7 +197,7 @@ li {
 	margin-top: 210px;
 }
 
-#home_link {
+.home_link {
 	font-weight: bold;
 }
 
