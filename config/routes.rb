@@ -16,7 +16,7 @@ MappedArticles::Application.routes.draw do
   
   delete "articles/:id" => "articles#delete"
   
-  
+  get "about" => "application#about", as: "about"
   
   get "locations" => "locations#index", as: "locations"
   

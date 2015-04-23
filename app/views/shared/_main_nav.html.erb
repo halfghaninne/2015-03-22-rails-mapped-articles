@@ -4,7 +4,7 @@
 	
 		<ul id="nav">
 			<li>More Stories</li>
-			<li>About</li>
+			<li><%= link_to("About", about_path) %></li>
 		</ul>
 		<ul id="user_panel">
 			<%= link_to("Sign Up", new_user_path) if @user == nil || @user.username == nil %>

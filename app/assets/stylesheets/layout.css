@@ -1,0 +1,13 @@
+.about {
+  margin-top: 120px;
+  padding-left: 18px;
+}
+
+.about a {
+  color: black;
+  font-weight: bold;
+}
+
+.about a:hover {
+  color: red;
+}
