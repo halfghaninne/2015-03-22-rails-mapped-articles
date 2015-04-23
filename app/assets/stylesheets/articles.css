@@ -18,6 +18,10 @@ a {
 	top: 0px;
 }
 
+#mobile_nav {
+  display: none;
+}
+
 .nav {
 	
 	padding-top: 5px;
@@ -52,6 +56,33 @@ li {
 	float: right;
 }
 
+/* ******************************************************** */
+/* ***************** Menu Responsiveness **************** */
+/* ******************************************************** */
+
+@media screen and (max-width: 667px) {
+  .nav {
+    display: none;
+  }
+
+  #mobile_nav {
+    display: block;
+  }
+
+  #mobile_nav_menu {
+    display: inline-block;
+    float: right;
+  }
+  
+  .mobile_nav_title {
+  	padding-top: 5px;
+  	padding-right: 10px;
+  	padding-left: 10px;
+  	padding-bottom: 5px;
+  }
+}
+
+/* ******************************************************** */
 
 #article_list {
 	padding-top: 100px;

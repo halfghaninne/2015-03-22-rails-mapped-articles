@@ -1,16 +1,28 @@
 <div id="nav_bar">
-		<header class="nav">
-	<h1><%= link_to("Omaha Times", articles_path)%></h1>
-	
-		<ul id="nav">
-			<li>More Stories</li>
-			<li><%= link_to("About", about_path) %></li>
-		</ul>
-		<ul id="user_panel">
-			<%= link_to("Sign Up", new_user_path) if @user == nil || @user.username == nil %>
-			<%= link_to("Log In", user_login_path) if @user == nil || @user.username == nil %>
-			<%= link_to("Sign Out", user_logout_path) if @user && @user.username != nil %>
-		</ul>
+	<header class="nav">
+    <h1><%= link_to("Omaha Times", articles_path)%></h1>
+
+	  <ul id="nav">
+		  <li>More Stories</li>
+		  <li><%= link_to("About", about_path) %></li>
+	   </ul>
+	   
+     <ul id="user_panel">
+		   <%= link_to("Sign Up", new_user_path) if @user == nil || @user.username == nil %>
+		   <%= link_to("Log In", user_login_path) if @user == nil || @user.username == nil %>
+		   <%= link_to("Sign Out", user_logout_path) if @user && @user.username != nil %>
+	   </ul>
 		
-		</header>
+	</header>
+  
+  <div id="mobile_nav">
+    <header class="mobile_nav_title">
+        <h1><%= link_to("Omaha Times", articles_path)%></h1>
+
+    	  <ul id="mobile_nav_menu">
+    		  <li>ICON HERE</li>
+        </ul>
+  </div>
+  
 </div>
+
