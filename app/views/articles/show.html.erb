@@ -1,61 +1,51 @@
-<div id="show_nav_bar">
-	<header class="nav">
-		<ul id="show_nav">
-			<li class="home_link"><%= link_to("Omaha Times", articles_path)%></li>
-			<li>More Stories</li>
-			<li>About</li>
-		</ul>
-		<ul id="show_user_panel">
-			<li class="admin_priv"><%= link_to("Edit", edit_article_path(@article.id)) if @admin %></li>
-			<li class="admin_priv"><%= link_to("Unpublish", article_path(@article.id), method: :delete, confirm: "Are you sure you want to unpublish this article? It will no longer appear on the site but can always be retrieved from the database.") if @admin %></li>
-			<li><%= link_to("Sign Up", new_user_path) if @user == nil %></li>
-			<li><%= link_to("Log In", user_login_path) if @user == nil %></li>
-			<li><%= link_to("Sign Out", user_logout_path) if @user %></li>
-		</ul>
-	</header>
-  
-  <div id="mobile_nav">
-    <header>
-        <ul class="mobile_nav_show_title">
-          <li class="home_link"><%= link_to("Omaha Times", articles_path)%></li>
-        </ul>
+<div class="mobile_show_menu" id="mobile_show_menu" style="display: none;">
+  <ul>
+    <li>More Stories</li>
+    <li>About</li>
+		<li class="admin_priv"><%= link_to("Edit Article", edit_article_path(@article.id)) if @admin %></li>
+		<li class="admin_priv"><%= link_to("Unpublish Article", article_path(@article.id), method: :delete, confirm: "Are you sure you want to unpublish this article? It will no longer appear on the site but can always be retrieved from the database.") if @admin %></li>
+		<li><%= link_to("Sign Up", new_user_path) if @user == nil %></li>
+		<li><%= link_to("Log In", user_login_path) if @user == nil %></li>
+		<li><%= link_to("Sign Out", user_logout_path) if @user %></li>
+  </ul>
+</div>
 
-    	  <ul id="mobile_nav_show_menu">
-    		  <li><img src="https://nccwsc.usgs.gov/sites/all/themes/usgs/images/menu.png"></li>
-        </ul>
+
+
+<div id="page_container">
+  <%= render :partial => '/shared/show_nav' %>
+
+
+  <header id="header_image" style="background-image:url(<%= @image %>)"> 
+  	<div class="header_text">
+  		<h2><%= @article.title %></h2>
+  		<h4><%= @article.author.name %>
+  		<%= @article.updated_at.to_s.at(5..15) %></h4>
+  	</div>
+  </header>
+
+
+  <div id="divider">
   </div>
-</div>
+
+  <div class="body" id="body">
+    <% @body.each do |para| %>
+  	<p><%= para %></p>
+    <% end %>
+  </div>
 
 
-<header id="header_image" style="background-image:url(<%= @image %>)"> 
-	<div class="header_text">
-		<h2><%= @article.title %></h2>
-		<h4><%= @article.author.name %>
-		<%= @article.updated_at.to_s.at(5..15) %></h4>
-	</div>
-</header>
+  <div id="divider">
+  </div>
 
+  <div id="author_info">
+  	<p><%= @article.author.auth_info %></p>
+  </div>
 
-<div id="divider">
-</div>
+  <div id="divider">
+  </div>
 
-<div class="body" id="body">
-  <% @body.each do |para| %>
-	<p><%= para %></p>
-  <% end %>
-</div>
-
-
-<div id="divider">
-</div>
-
-<div id="author_info">
-	<p><%= @article.author.auth_info %></p>
-</div>
-
-<div id="divider">
-</div>
-
-<div id="map_embed">
-	<%= render :partial => '/locations/map_article_embed' %>
+  <div id="map_embed">
+  	<%= render :partial => '/locations/map_article_embed' %>
+  </div>
 </div>

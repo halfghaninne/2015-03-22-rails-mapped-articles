@@ -104,6 +104,37 @@ li {
     width: 25px;
   }
   
+  #page_container {
+    transition: all 250ms ease;
+  }
+  
+  .mobile_show_menu {
+    position: fixed;
+    width: 180px;
+    right: -180px;
+    height: 100%;
+    background: black;
+    top: 0;
+    right: 0;
+  }
+  
+  .mobile_show_menu_is_shown {
+    display: block;
+  }
+   
+  .is-mobile-nav-shown {
+     -webkit-transform: translateX(-180px);
+     transform: translateX(-180px);
+     transition: all 250ms ease;
+  }
+    
+  #mobile_show_menu li {
+    font-size: large;
+    padding: 15px;
+    float: left;
+    display: block;
+  }
+  
   .mobile_nav_show_title {
   	float: left;
   }
