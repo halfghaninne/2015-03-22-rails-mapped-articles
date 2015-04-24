@@ -74,6 +74,10 @@ li {
     float: right;
   }
   
+  #mobile_nav_menu img {
+    width: 35px;
+  }
+  
   .mobile_nav_title {
   	padding-top: 5px;
   	padding-right: 10px;
@@ -86,16 +90,27 @@ li {
   	padding-right: 10px;
   	padding-left: 10px;
   	padding-bottom: 5px;
+    margin-top: 16px;
+
   }
   
   #mobile_nav_show_menu {
     float: right;
+    margin-top: 12.5px;
+    padding-right: 10px;
+  }
+  
+  #mobile_nav_show_menu img {
+    width: 25px;
   }
   
   .mobile_nav_show_title {
   	float: left;
   }
   
+  ul {
+    margin: 0;
+  }
   
 }
 
