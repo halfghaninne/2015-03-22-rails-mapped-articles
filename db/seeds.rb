@@ -14,3 +14,9 @@ password = BCrypt::Password.create(ENV["pass"])
 admin = User.create({username: username, password: password, is_admin: true})
 
 author = Author.create({name: "Jane Doe", auth_info: "Jane is author based in Omaha, NE. She loves cats, math, and feminism."})
+
+article = Article.create({title: "Seed test", body: "blah blah", author_id: 1, published: true, main_image_url: "https://download.unsplash.com/reserve/xWcqazwvSXadCA7dZLiQ_Ship_mast.jpg"})
+
+location = Location.create({alias: "Omaha World Herald", address: "1314 Douglas Street, Omaha NE 68102"})
+
+pin = Pin.create({article_id: 1, location_id: 1})
