@@ -109,13 +109,15 @@ li {
   }
   
   .mobile_show_menu {
+    /*z-index: 999px;*/
     position: fixed;
+    margin-top: 47px;
+    /*height: 350px;*/
     width: 180px;
-    right: -180px;
-    height: 100%;
-    background: black;
     top: 0;
-    right: 0;
+    right: -180px;
+    background: black;
+
   }
   
   .mobile_show_menu_is_shown {

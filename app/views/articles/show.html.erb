@@ -4,8 +4,8 @@
     <li>About</li>
 		<li class="admin_priv"><%= link_to("Edit Article", edit_article_path(@article.id)) if @admin %></li>
 		<li class="admin_priv"><%= link_to("Unpublish Article", article_path(@article.id), method: :delete, confirm: "Are you sure you want to unpublish this article? It will no longer appear on the site but can always be retrieved from the database.") if @admin %></li>
-		<li><%= link_to("Sign Up", new_user_path) if @user == nil %></li>
-		<li><%= link_to("Log In", user_login_path) if @user == nil %></li>
+		<% if @user ==nil %><li><%= link_to("Sign Up", new_user_path) %></li><% end %>
+		<% if @user ==nil %><li><%= link_to("Log In", user_login_path) %></li><% end %>
 		<li><%= link_to("Sign Out", user_logout_path) if @user %></li>
   </ul>
 </div>
@@ -13,9 +13,9 @@
 
 
 <div id="page_container">
+
   <%= render :partial => '/shared/show_nav' %>
-
-
+  
   <header id="header_image" style="background-image:url(<%= @image %>)"> 
   	<div class="header_text">
   		<h2><%= @article.title %></h2>
@@ -23,7 +23,6 @@
   		<%= @article.updated_at.to_s.at(5..15) %></h4>
   	</div>
   </header>
-
 
   <div id="divider">
   </div>
