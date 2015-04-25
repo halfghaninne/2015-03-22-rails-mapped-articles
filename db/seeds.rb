@@ -8,7 +8,9 @@
 
 require "bcrypt"
 
-password = BCrypt::Password.create("admin")
-admin = User.create({username: "admin", password: password, is_admin: true})
+username = ENV["username"]
+password = BCrypt::Password.create(ENV["pass"])
+
+admin = User.create({username: username, password: password, is_admin: true})
 
 author = Author.create({name: "Jane Doe", auth_info: "Jane is author based in Omaha, NE. She loves cats, math, and feminism."})

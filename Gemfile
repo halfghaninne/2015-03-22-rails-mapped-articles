@@ -15,7 +15,7 @@ gem 'foreigner', '~> 1.7.2'
 
 gem 'geocoder', '~> 1.2.8'
 
-gem 'dotenv', '~> 2.0.0'
+gem 'dotenv-rails', '~> 2.0.0'
 
 gem 'bcrypt-ruby', '~> 3.1.5'
 
