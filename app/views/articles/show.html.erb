@@ -1,7 +1,7 @@
 <div class="mobile_show_menu" id="mobile_show_menu" style="display: none;">
   <ul>
     <li>More Stories</li>
-    <li>About</li>
+    <li><%= link_to("About", about_path) %></li>
 		<li class="admin_priv"><%= link_to("Edit Article", edit_article_path(@article.id)) if @admin %></li>
 		<li class="admin_priv"><%= link_to("Unpublish Article", article_path(@article.id), method: :delete, confirm: "Are you sure you want to unpublish this article? It will no longer appear on the site but can always be retrieved from the database.") if @admin %></li>
 		<% if @user ==nil %><li><%= link_to("Sign Up", new_user_path) %></li><% end %>

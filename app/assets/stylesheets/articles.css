@@ -117,10 +117,18 @@ li {
     top: 0;
     right: -180px;
     background: black;
-
   }
   
-  .mobile_show_menu_is_shown {
+  .mobile_main_menu {
+    position: fixed;
+    margin-top: 80px;
+    width: 180px;
+    top: 0;
+    right: -180px;
+    background: black;
+  }
+  
+  .mobile_menu_is_shown {
     display: block;
   }
    
@@ -134,6 +142,20 @@ li {
     font-size: large;
     padding: 15px;
     float: left;
+    display: block;
+  }
+  
+  #mobile_main_menu li {
+    font-size: large;
+    padding: 15px;
+    float: left;
+    display: block;
+  }
+  
+  #mobile_main_menu a {
+    font-size: large;
+    float: left;
+    padding-right: 15px;
     display: block;
   }
   

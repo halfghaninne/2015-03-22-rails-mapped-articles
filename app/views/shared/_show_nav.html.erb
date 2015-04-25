@@ -3,7 +3,7 @@
 		<ul id="show_nav">
 			<li class="home_link"><%= link_to("Omaha Times", articles_path)%></li>
 			<li>More Stories</li>
-			<li>About</li>
+			<li><%= link_to("About", about_path) %></li>
 		</ul>
 		<ul id="show_user_panel">
 			<li class="admin_priv"><%= link_to("Edit", edit_article_path(@article.id)) if @admin %></li>

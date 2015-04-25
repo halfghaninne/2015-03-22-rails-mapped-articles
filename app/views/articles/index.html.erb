@@ -1,3 +1,12 @@
+<div class="mobile_main_menu" id="mobile_main_menu" style="display: none;">
+  <ul>
+    <li>More Stories</li>
+    <li><%= link_to("About", about_path) %></li>
+		<% if @user ==nil %><li><%= link_to("Sign Up", new_user_path) %></li><% end %>
+		<% if @user ==nil %><li><%= link_to("Log In", user_login_path) %></li><% end %>
+		<li><%= link_to("Sign Out", user_logout_path) if @user %></li>
+  </ul>
+</div>
 
 <%= render :partial => '/shared/main_nav' %>
 
