@@ -63,4 +63,8 @@
       <%= f.submit "Publish", :class => 'form_submit' %>
   <% end %>
   
+  <br>
+  
+  <button class="unpublish"><%= link_to("UNPUBLISH", article_path(@article.id), method: :delete, confirm: "Are you sure you want to unpublish this article? It will no longer appear on the site but can always be retrieved from the database.") %></button>
+  
 </div>

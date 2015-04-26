@@ -159,6 +159,7 @@ li {
     display: block;
   }
   
+  
   .mobile_nav_show_title {
   	float: left;
   }
@@ -303,6 +304,13 @@ input.form_submit {
   height: 4em;
   background-color: grey;
   text-transform: uppercase;
+  border-radius: 10px;
+}
+
+.unpublish{
+  width: 10em;
+  height: 4em;
+  background-color: red;
   border-radius: 10px;
 }
 
