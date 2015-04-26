@@ -305,3 +305,7 @@ input.form_submit {
   text-transform: uppercase;
   border-radius: 10px;
 }
+
+.article_body {
+  width: 500px;;
+}

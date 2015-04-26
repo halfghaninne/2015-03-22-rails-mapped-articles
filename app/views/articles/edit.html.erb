@@ -1,39 +1,74 @@
-Edit Article:
+<div class="mobile_main_menu" id="mobile_main_menu" style="display: none;">
+  <ul>
+    <li>More Stories</li>
+    <li><%= link_to("About", about_path) %></li>
+		<% if @user ==nil %><li><%= link_to("Sign Up", new_user_path) %></li><% end %>
+		<% if @user ==nil %><li><%= link_to("Log In", user_login_path) %></li><% end %>
+		<li><%= link_to("Sign Out", user_logout_path) if @user %></li>
+  </ul>
+</div>
 
-<%= form_for @article do |f| %>
-	<%= f.label "title", "Title:" %>
-    <%= f.text_field("title") %><br>
+<%= render :partial => '/shared/main_nav' %>
+
+<div class="sub-body">
+  <h2>Edit Article:</h2>
+  <br>
+
+  <%= form_for @article do |f| %>
+  	<%= f.label "title", "Title:" %>
+      <%= f.text_field("title") %><br><br>
 	
-	<%= f.label "author", "Author:" %>
-	<%= f.collection_select(:author_id, Author.all, :id, :name, :prompt => true)%><br>
+  	<%= f.label "author", "Author:" %>
+  	<%= f.collection_select(:author_id, Author.all, :id, :name, :prompt => true)%><br><br>
   
-  <%= f.label "main_image_url", "URL for main image:" %>
-  <%= f.text_field("main_image_url") %><br>
+    <%= f.label "main_image_url", "URL for main image:" %>
+    <%= f.text_field("main_image_url") %><br><br>
 	
-    <%= f.label "body", "Article Text:" %><br>
-    <%= f.text_area("body") %><br><br>
+      <%= f.label "body", "Article Text:" %><br>
+      <%= f.text_area("body", :class => "article_body") %><br><br>
 	
-	
-	<%= f.fields_for :pins do |p| %>
+    <label style="font-weight: bold;">Edit locations assigned to this article:</label>
+    
+    <br><br>
+	  
+  	<%= f.fields_for :pins do |p| %>
 			
-		<%= p.collection_select(
-			:location_id,
-			Location.all,
-			:id,
-			:custom_alias,
-			{:selected => p.object.location_id }
-		) %>
+  		<%= p.collection_select(
+  			:location_id,
+  			Location.all,
+  			:id,
+  			:custom_alias,
+  			{:selected => p.object.location_id }
+  		) %>
 		
-		<br>
+  		<br>
 		
-	<% end %>
+  	<% end %>
+    
+  	<div id="add_dropdown">
+  	</div>
 	
-	<div id="add_location_fields">
-	</div>
+  	<br>
 	
-	<%= link_to_add_location_fields(@article, f) %>
+  	<%= link_to_add_dropdown(@article, f) %>	
 	
-	<%= f.hidden_field(:published, value: true)%>
+  	<br><br><br>
+    
+    <label style="font-weight: bold;">Add a new location to the system:</label>
+    
+    <br><br>
+    
+  	<div id="add_location_fields">
+  	</div>
+    
+    <br>
 	
-    <%= f.submit "Publish" %>
-<% end %>
+  	<%= link_to_add_location_fields(@article, f) %>
+    <br><br><br>
+	
+  	<%= f.hidden_field(:published, value: true)%>
+	
+      <%= f.submit "Publish", :class => 'form_submit' %>
+  <% end %>
+  
+</div>
