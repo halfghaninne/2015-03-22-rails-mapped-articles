@@ -296,3 +296,12 @@ p {
 	font-style: italic;
 	color: grey;
 }
+
+
+input.form_submit {
+  width: 10em;
+  height: 4em;
+  background-color: grey;
+  text-transform: uppercase;
+  border-radius: 10px;
+}

@@ -1,43 +1,58 @@
-New article
+<div class="mobile_main_menu" id="mobile_main_menu" style="display: none;">
+  <ul>
+    <li>More Stories</li>
+    <li><%= link_to("About", about_path) %></li>
+		<% if @user ==nil %><li><%= link_to("Sign Up", new_user_path) %></li><% end %>
+		<% if @user ==nil %><li><%= link_to("Log In", user_login_path) %></li><% end %>
+		<li><%= link_to("Sign Out", user_logout_path) if @user %></li>
+  </ul>
+</div>
 
-<%= form_for @article do |f| %>
-	<%= f.label "title", "Title:" %>
-    <%= f.text_field("title") %><br>
+<%= render :partial => '/shared/main_nav' %>
+
+<div class="sub-body">
+  <h2>New article</h2>
+  <br>
+
+  <%= form_for @article do |f| %>
+  	<%= f.label "title", "Title:" %>
+      <%= f.text_field("title") %><br><br>
 	
-	<%= f.label "author", "Author:" %>
-	<%= f.collection_select(:author_id, Author.all, :id, :name, :prompt => true)%><br>
+  	<%= f.label "author", "Author:" %>
+  	<%= f.collection_select(:author_id, Author.all, :id, :name, :prompt => true)%><br><br>
   
-  <%= f.label "main_image_url", "Main Image:" %>
-  <%= f.text_field("main_image_url") %>
+    <%= f.label "main_image_url", "Main Image:" %>
+    <%= f.text_field("main_image_url") %><br><br>
 	
-    <%= f.label "body", "Article Text:" %><br>
-    <%= f.text_area("body") %>
+      <%= f.label "body", "Article Text:" %><br>
+      <%= f.text_area("body") %>
 	
-	<br><br>
+  	<br><br>
 	
-	<div id="add_dropdown">
-	</div>
+  	<div id="add_dropdown">
+  	</div>
 	
-	<br>
+  	<br>
 	
-	<%= link_to_add_dropdown(@article, f) %>	
+  	<%= link_to_add_dropdown(@article, f) %>	
 	
-	<br><br><br>
+  	<br><br><br>
 	
-	<label style="color:red">Add a new location to the system:</label>
+  	<label style="font-weight: bold;">Add a new location to the system:</label>
 	
-	<br><br>
+  	<br><br>
 	
-	<div id="add_location_fields">
-	</div>
+  	<div id="add_location_fields">
+  	</div>
 	
-	<br>
+  	<br>
 	
-	<%= link_to_add_location_fields(@article, f) %>
+  	<%= link_to_add_location_fields(@article, f) %>
 	
-	<br><br>
+  	<br><br><br>
 	
-	<%= f.hidden_field(:published, value: true)%>
-    <%= f.submit "Publish" %>
+  	<%= f.hidden_field(:published, value: true)%>
+      <%= f.submit "Publish", :class => 'form_submit' %>
 	
-<% end %>
+  <% end %>
+</div>
