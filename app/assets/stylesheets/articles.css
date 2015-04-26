@@ -140,7 +140,7 @@ li {
     
   #mobile_show_menu li {
     font-size: large;
-    padding: 15px;
+    padding: 15px 25px;
     float: left;
     display: block;
   }
