@@ -179,9 +179,10 @@ li {
 }
 
 #article_link {
-	padding-left: 18px;
-	padding-top: 8px;
-	padding-bottom: 6px;
+	padding: 8px 18px;
+/*  padding-right: 18px;*/
+/*  padding-top: 8px;
+  padding-bottom: 6px;*/
 	background-color: black;
 	color: white;
 }
@@ -193,6 +194,7 @@ li {
 #article_text_prev {
 	font-style: italic;
 	padding-left: 10px;
+  padding-right: 10px;
 }
 
 /* ******************************************************** */
