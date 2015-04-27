@@ -14,6 +14,7 @@
        <% if @user == nil || @user.username == nil %>
 		     <li><%= link_to("Log In", user_login_path) %></li>
        <% end %>
+       <% if @admin %><li class="admin_priv"><%= link_to("New Article", new_article_path) %></li><% end %>
 		   <% if @user && @user.username != nil %>
          <li><%= link_to("Sign Out", user_logout_path) %></li>
          <% end %>
