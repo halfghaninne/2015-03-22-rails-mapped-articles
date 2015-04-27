@@ -28,6 +28,12 @@ class ArticlesController < ApplicationController
     render "/articles/index"
   end
   
+  def all
+    @articles = Article.where(published: true).order("id desc")
+    # @geojsonformatted = Location.map_all
+    render "/articles/all"
+  end
+  
   def show
     @article = Article.find(params[:id])
     @image = @article.main_image_url

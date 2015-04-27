@@ -4,6 +4,8 @@ MappedArticles::Application.routes.draw do
   
   get "articles" => "articles#reroute"
   
+  get "articles/all" => "articles#all", as: "all_articles"
+  
   get "articles/new" => "articles#new", as: "new_article" 
   
   post "/" => "articles#create" 

@@ -1,6 +1,6 @@
 <div class="mobile_main_menu" id="mobile_main_menu" style="display: none;">
   <ul>
-    <li>More Stories</li>
+    <li><%= link_to("More Stories", all_articles_path) %></li>
     <li><%= link_to("About", about_path) %></li>
     <% if @admin %><li class="admin_priv"><%= link_to("New Article", new_article_path) %></li><% end %>
 		<% if @user ==nil %><li><%= link_to("Sign Up", new_user_path) %></li><% end %>
