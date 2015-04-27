@@ -13,7 +13,7 @@
   color: red;
 }
 
-.sub-body {
+.user_login, .user_signup, .sub-body {
   padding-left: 18px;
   padding-top: 100px;
   padding-bottom: 50px;

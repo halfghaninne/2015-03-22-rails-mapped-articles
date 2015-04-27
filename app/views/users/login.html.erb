@@ -1,3 +1,5 @@
+<%= render :partial => '/shared/mobile_nav' %>
+
 <%= render :partial => '/shared/main_nav' %>
 
 <div class="user_login">
@@ -6,13 +8,14 @@
 		<%= flash[:message] %>
 	</div>
   
-  Log In
+  <h2>Log In</h2>
+  <br>
 
   <%= form_for :user, url: {action: "find"}, method: "post" do |f| %>
   	<%= f.label "username", "Username:" %>
-      <%= f.text_field("username") %><br>
+      <%= f.text_field("username") %><br><br>
   	<%= f.label "password", "Password:" %>
-      <%= f.password_field("password") %><br>
+      <%= f.password_field("password") %><br><br>
       <%= f.submit "Log In" %>
   <% end %>
   
