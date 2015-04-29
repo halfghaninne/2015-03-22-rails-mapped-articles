@@ -6,13 +6,12 @@ class Location < ActiveRecord::Base
   
   before_create :get_coordinates
   
-  def get_coordinates # tweak this to move it into a before filter for create
+  def get_coordinates 
     geocoder_return = Geocoder.search(self.address)
     latitude = geocoder_return[0].latitude
     longitude = geocoder_return[0].longitude
     self.latitude = latitude
     self.longitude = longitude
-    # Location.update(self.id, :latitude => latitude, :longitude => longitude)
   end
   
   def custom_alias

@@ -1,25 +1,28 @@
 <div id="nav_bar">
 	<header class="nav">
-    <h1><%= link_to("Omaha Times", articles_path)%></h1>
-
-	  <ul id="nav">
-		  <li><%= link_to("More Stories", all_articles_path) %></li>
-		  <li><%= link_to("About", about_path) %></li>
-	   </ul>
+    <div id="nav_title">
+      <h1><%= link_to("Omaha Times", articles_path)%></h1>
+    </div>
+      
+    <div id="nav_options">
+  	  <ul id="nav">
+  		  <li><%= link_to("More Stories", all_articles_path) %></li>
+  		  <li><%= link_to("About", about_path) %></li>
+  	   </ul>
 	   
-     <ul id="user_panel">
-       <% if @user == nil || @user.username == nil %>
-         <li><%= link_to("Sign Up", new_user_path) %></li>
-       <% end  %>
-       <% if @user == nil || @user.username == nil %>
-		     <li><%= link_to("Log In", user_login_path) %></li>
-       <% end %>
-       <% if @admin %><li class="admin_priv"><%= link_to("New Article", new_article_path) %></li><% end %>
-		   <% if @user && @user.username != nil %>
-         <li><%= link_to("Sign Out", user_logout_path) %></li>
+       <ul id="user_panel">
+         <% if @user == nil || @user.username == nil %>
+           <li><%= link_to("Sign Up", new_user_path) %></li>
+         <% end  %>
+         <% if @user == nil || @user.username == nil %>
+  		     <li><%= link_to("Log In", user_login_path) %></li>
          <% end %>
-	   </ul>
-		
+         <% if @admin %><li class="admin_priv"><%= link_to("New Article", new_article_path) %></li><% end %>
+  		   <% if @user && @user.username != nil %>
+           <li><%= link_to("Sign Out", user_logout_path) %></li>
+           <% end %>
+  	   </ul>
+		</div>
 	</header>
   
   <div id="mobile_nav">

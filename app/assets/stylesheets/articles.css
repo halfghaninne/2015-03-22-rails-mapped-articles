@@ -23,11 +23,8 @@ a {
 }
 
 .nav {
-	
-	padding-top: 5px;
 	padding-right: 10px;
 	padding-left: 10px;
-	padding-bottom: 5px;
 }
 
 h1 {
@@ -50,10 +47,24 @@ li {
 
 #nav {
 	float: left;
+  margin: 0;
+  z-index: 3;
+  position: absolute;
+  left: 10px;
+  top: 45px;
+}
+
+#nav_title {
+  padding-top: 7px;
 }
 
 #user_panel {
 	float: right;
+  margin: 0;
+  z-index: 3;
+  position: absolute;
+  right: 10px;
+  top: 45px;
 }
 
 /* ******************************************************** */
@@ -70,19 +81,23 @@ li {
   }
 
   #mobile_nav_menu {
-    display: inline-block;
+    display: block;
     float: right;
+    z-index: 3;
+    position: absolute; 
+    right: 10px; 
+    top: 21px;
   }
   
   #mobile_nav_menu img {
     width: 35px;
+    margin-bottom: 10px;
   }
   
   .mobile_nav_title {
-  	padding-top: 5px;
   	padding-right: 10px;
   	padding-left: 10px;
-  	padding-bottom: 5px;
+    padding-top: 7px;
   }
   
   .mobile_nav_show_title {
@@ -90,7 +105,7 @@ li {
   	padding-right: 10px;
   	padding-left: 10px;
   	padding-bottom: 5px;
-    margin-top: 16px;
+    margin-top: 5px;
 
   }
   
@@ -238,10 +253,12 @@ li {
 
 #show_nav {
 	float: left;
+  margin-top: 10px;
 }
 
 #show_user_panel {
 	float: right;
+  margin-top: 10px;
 }
 
 #header_image {
@@ -254,7 +271,7 @@ li {
 
 .header_text h2 {
   margin: 0;
-  padding-top: 10px;
+  padding-top: 2px;
   padding-bottom: 8px;
 }
 
@@ -267,7 +284,7 @@ li {
   padding-left: 20px;
   color: white;
   background-color: rgba(0, 0, 0, 0.7);
-	margin-top: 210px;
+	margin-top: 180px;
 }
 
 .home_link {
