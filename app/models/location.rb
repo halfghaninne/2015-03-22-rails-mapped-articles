@@ -7,7 +7,9 @@ class Location < ActiveRecord::Base
   before_create :get_coordinates
   
   def get_coordinates 
+    puts "In method Location#get_coordinates for #{self.address}"
     geocoder_return = Geocoder.search(self.address)
+    puts geocoder_return
     latitude = geocoder_return[0].latitude
     longitude = geocoder_return[0].longitude
     self.latitude = latitude
