@@ -41,7 +41,7 @@ class Location < ActiveRecord::Base
           }
         }
       end
-      
+     
     @geojsonformatted = @geojson.to_json  
   end # method
   

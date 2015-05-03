@@ -7,8 +7,32 @@
 <script type='text/javascript'>
 
 L.mapbox.accessToken = 'pk.eyJ1IjoiaGFsZmdoYW5pbm5lIiwiYSI6IjFsaXlKYVUifQ.KArbwbb7EBBh5jKW_B5Gyg';
+
 var map = L.mapbox.map('map', 'halfghaninne.liga61p0')
     .setView([41.284, -95.945], 12);
-	
-map.featureLayer.setGeoJSON(<%= raw(@geojsonformatted) %>)
+
+var locationsLayer = L.mapbox.featureLayer().addTo(map);
+var geoJson = <%= raw(@geojsonformatted) %> ;
+locationsLayer.setGeoJSON(geoJson);
+    
+function resetColors() {
+  for (var i = 0; i < geoJson.length; i++) {
+    geoJson[i].properties['marker-color'] =
+      geoJson[i].properties['old-color'] ||
+      geoJson[i].properties['marker-color'];
+    }
+
+  locationsLayer.setGeoJSON(geoJson);
+}
+
+locationsLayer.on('click', function(e) {
+  resetColors();
+  e.layer.feature.properties['old-color'] =
+    e.layer.feature.properties['marker-color'];
+  e.layer.feature.properties['marker-color'] = '#ff8888';
+  locationsLayer.setGeoJSON(geoJson);
+});
+
+map.on('click', resetColors);
+  
 </script>
