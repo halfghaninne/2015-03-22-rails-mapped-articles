@@ -20,7 +20,14 @@ class Location < ActiveRecord::Base
     self.alias # TODO - Whatever Alex wants
   end
   
-  def get_article
+  def get_articles
+    pins = Pin.where(location_id: self.id)
+    articles = []
+    pins.each do |pin| 
+      a = Article.find(pin.article_id)
+      articles << a
+    end
+    articles
   end
   
   def self.map_article(article_id)
