@@ -17,22 +17,17 @@ locationsLayer.setGeoJSON(geoJson);
     
 function resetColors() {
   for (var i = 0; i < geoJson.length; i++) {
-    geoJson[i].properties['marker-color'] =
-      geoJson[i].properties['old-color'] ||
-      geoJson[i].properties['marker-color'];
+    if (geoJson[i].properties['marker-color'] == '#00607d') {
+      geoJson[i].properties['marker-color'] = '#ff8888'
+    } else if (geoJson[i].properties['marker-color'] == '#ff8888') {
+      geoJson[i].properties['marker-color'] = '#00607d'
     }
-
+  }
   locationsLayer.setGeoJSON(geoJson);
 }
 
 locationsLayer.on('click', function(e) {
   resetColors();
-  e.layer.feature.properties['old-color'] =
-    e.layer.feature.properties['marker-color'];
-  e.layer.feature.properties['marker-color'] = '#ff8888';
-  locationsLayer.setGeoJSON(geoJson);
 });
 
-map.on('click', resetColors);
-  
 </script>
