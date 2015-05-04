@@ -21,7 +21,7 @@ class Location < ActiveRecord::Base
   end
   
   def get_articles
-    pins = Pin.where(location_id: self.id)
+    pins = Pin.where(location_id: self.id).order("id desc")
     articles = []
     pins.each do |pin| 
       a = Article.find(pin.article_id)
