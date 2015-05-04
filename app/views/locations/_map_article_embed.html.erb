@@ -24,11 +24,13 @@ locationsLayer.on('layeradd', function(e) {
   //                     feature.properties.city +
   //                     '</a>';
   if (feature.properties.count == 1) {
-    var popupContent = '<p>' + feature.properties.name + '   (<a href="">' + 
+    var popupContent = '<p>' + feature.properties.name + 
+                  ' (<a href="/locations/' + feature.properties.id + '">' + 
                   feature.properties.count + ' article</a>)' + '</p>';
   } else {
-    var popupContent = '<p>' + feature.properties.name + '   (<a href="">' + 
-                      feature.properties.count + ' articles</a>)' + '</p>';
+    var popupContent = '<p>' + feature.properties.name + 
+                    ' (<a href="/locations/' + feature.properties.id + '">' + 
+                    feature.properties.count + ' articles</a>)' + '</p>';
   };
    
   // http://leafletjs.com/reference.html#popup

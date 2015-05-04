@@ -20,6 +20,9 @@ class Location < ActiveRecord::Base
     self.alias # TODO - Whatever Alex wants
   end
   
+  def get_article
+  end
+  
   def self.map_article(article_id)
     @locations = Article.find(article_id).locations
     
@@ -33,6 +36,7 @@ class Location < ActiveRecord::Base
             coordinates: [location.longitude, location.latitude]
           },
           properties: {
+            id: location.id,
             count: Pin.where(location_id: location.id).length,
             name: location.alias,
             address: location.address,
