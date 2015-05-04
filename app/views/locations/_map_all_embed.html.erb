@@ -7,8 +7,34 @@
 <script type='text/javascript'>
 
 L.mapbox.accessToken = 'pk.eyJ1IjoiaGFsZmdoYW5pbm5lIiwiYSI6IjFsaXlKYVUifQ.KArbwbb7EBBh5jKW_B5Gyg';
+
 var map = L.mapbox.map('map', 'halfghaninne.liga61p0')
     .setView([41.284, -95.945], 12);
-	
-map.featureLayer.setGeoJSON(<%= raw(@geojsonformatted) %>)
+    
+var locationsLayer = L.mapbox.featureLayer().addTo(map);
+var geoJson = <%= raw(@geojsonformatted) %> ;
+
+locationsLayer.on('layeradd', function(e) {
+  var marker = e.layer,
+      feature = marker.feature;
+      
+  if (feature.properties.count == 1) {
+    var popupContent = '<p>' + feature.properties.name + 
+                  '<br><a href="/locations/' + feature.properties.id + '">' + 
+                  feature.properties.count + ' article</a>' + '</p>';
+  } else {
+    var popupContent = '<p>' + feature.properties.name + 
+                    '<br><a href="/locations/' + feature.properties.id + '">' + 
+                    feature.properties.count + ' articles</a>' + '</p>';
+  };
+   
+  // http://leafletjs.com/reference.html#popup
+  marker.bindPopup(popupContent,{
+    closeButton: false,
+    minWidth: 300
+    });
+});
+
+locationsLayer.setGeoJSON(geoJson);	
+
 </script>
