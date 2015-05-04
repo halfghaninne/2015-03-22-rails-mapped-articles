@@ -13,28 +13,54 @@ var map = L.mapbox.map('map', 'halfghaninne.liga61p0')
 
 var locationsLayer = L.mapbox.featureLayer().addTo(map);
 var geoJson = <%= raw(@geojsonformatted) %> ;
-locationsLayer.setGeoJSON(geoJson);
 
-function resetColors() {
-  for (var i = 0; i < geoJson.length; i++) {
-    geoJson[i].properties['marker-color'] =
-      geoJson[i].properties['old-color'] ||
-      geoJson[i].properties['marker-color'];
-    }
-
-  locationsLayer.setGeoJSON(geoJson);
-}
-
-locationsLayer.on('click', function(e) {
-  resetColors();
-  e.layer.feature.properties['old-color'] =
-    e.layer.feature.properties['marker-color'];
-  e.layer.feature.properties['marker-color'] = '#ff8888';
-  locationsLayer.setGeoJSON(geoJson);
+locationsLayer.on('layeradd', function(e) {
+  var marker = e.layer,
+      feature = marker.feature;
+      
+  // var popupContent =  '<a target="_blank" class="popup" href="' +
+  //                     feature.properties.url + '">' +
+  //                     '<img src="' + feature.properties.image + '" />' +
+  //                     feature.properties.city +
+  //                     '</a>';
+  if (feature.properties.count == 1) {
+    var popupContent = '<p>' + feature.properties.name + '   (<a href="">' + 
+                  feature.properties.count + ' article</a>)' + '</p>';
+  } else {
+    var popupContent = '<p>' + feature.properties.name + '   (<a href="">' + 
+                      feature.properties.count + ' articles</a>)' + '</p>';
+  };
+   
+  // http://leafletjs.com/reference.html#popup
+  marker.bindPopup(popupContent,{
+    closeButton: false,
+    minWidth: 320
+    });
 });
 
-map.on('click', resetColors);
+locationsLayer.setGeoJSON(geoJson);
 
+///////////////// GOOD COlOR CHANGE CODE //////////////////
+// function resetColors() {
+//   for (var i = 0; i < geoJson.length; i++) {
+//     geoJson[i].properties['marker-color'] =
+//       geoJson[i].properties['old-color'] ||
+//       geoJson[i].properties['marker-color'];
+//     }
+//
+//   locationsLayer.setGeoJSON(geoJson);
+// }
+//
+// locationsLayer.on('click', function(e) {
+//   resetColors();
+//   e.layer.feature.properties['old-color'] =
+//     e.layer.feature.properties['marker-color'];
+//   e.layer.feature.properties['marker-color'] = '#ff8888';
+//   locationsLayer.setGeoJSON(geoJson);
+// });
+//
+// map.on('click', resetColors);
+///////////////// GOOD COlOR CHANGE CODE //////////////////
     
 // function resetColors() {
 //   for (var i = 0; i < geoJson.length; i++) {

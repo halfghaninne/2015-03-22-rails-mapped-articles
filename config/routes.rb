@@ -22,7 +22,6 @@ MappedArticles::Application.routes.draw do
   
   get "locations" => "locations#index", as: "locations"
   
-  
   get "users/new" => "users#new", as: "new_user"
    
   post "users" => "users#create"

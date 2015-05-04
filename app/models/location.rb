@@ -33,6 +33,7 @@ class Location < ActiveRecord::Base
             coordinates: [location.longitude, location.latitude]
           },
           properties: {
+            count: Pin.where(location_id: location.id).length,
             name: location.alias,
             address: location.address,
             :'marker-color' => '#00607d',
